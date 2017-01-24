@@ -57,7 +57,9 @@ Scatterplot.prototype = {
         var allCountries   = countries.merge(enterCountries)
 
         enterCountries
-            .attr('class', 'country')
+            .attr('class', function (d) {
+                return 'country continent-' + d.continent.replace(' ', '-')
+            })
 
         allCountries
             .attr('r', function (d) { return chart.scales.r(d.population) })
