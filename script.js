@@ -43,6 +43,18 @@ Scatterplot.prototype = {
                 .range([height, 0])
         }
 
+        var xAxis = d3.axisBottom().scale(chart.scales.x)
+        var yAxis = d3.axisLeft().scale(chart.scales.y)
+
+        chart.svg.append('g')
+            .attr('class', 'x axis')
+            .attr('transform', 'translate(0,' + height + ')')
+            .call(xAxis)
+
+        chart.svg.append('g')
+            .attr('class', 'y axis')
+            .call(yAxis)
+
         chart.update()
     },
 
