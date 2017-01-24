@@ -47,6 +47,9 @@ Scatterplot.prototype = {
         enterCountries
             .attr('class', 'country')
 
+        allCountries
+            .attr('r', function (d) { return Math.sqrt(d.population) / 1000 })
+
         exitCountries.remove()
     }
 }
