@@ -30,7 +30,13 @@ Scatterplot.prototype = {
         chart.scales = {
             r: d3.scaleSqrt()
                 .domain([0, d3.max(app.data, function (d) { return d.population })])
-                .range([0, 60])
+                .range([0, 60]),
+            x: d3.scaleLinear()
+                .domain([0, d3.max(app.data, function (d) { return d.totalFertility })])
+                .range([0, width]),
+            y: d3.scaleLinear()
+                .domain([0, d3.max(app.data, function (d) { return d.lifeExpectancy })])
+                .range([height, 0])
         }
 
         chart.update()
@@ -55,6 +61,8 @@ Scatterplot.prototype = {
 
         allCountries
             .attr('r', function (d) { return chart.scales.r(d.population) })
+            .attr('cx', function (d) { return chart.scales.x(d.totalFertility) })
+            .attr('cy', function (d) { return chart.scales.y(d.lifeExpectancy) })
 
         exitCountries.remove()
     }
