@@ -55,6 +55,11 @@ Scatterplot.prototype = {
             .attr('class', 'y axis')
             .call(yAxis)
 
+        chart.tooltip = chart.svg.append('text')
+            .attr('x', width)
+            .attr('y', 0)
+            .attr('class', 'tooltip')
+
         chart.update()
     },
 
@@ -75,6 +80,12 @@ Scatterplot.prototype = {
         enterCountries
             .attr('class', function (d) {
                 return 'country continent-' + d.continent.replace(' ', '-')
+            })
+            .on('mouseover', function (d) {
+                chart.tooltip.text(d.country)
+            })
+            .on('mouseout', function () {
+                chart.tooltip.text('')
             })
 
         allCountries
