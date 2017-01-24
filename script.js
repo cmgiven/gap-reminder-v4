@@ -27,6 +27,12 @@ Scatterplot.prototype = {
             .attr('width', width)
             .attr('height', height)
 
+        chart.scales = {
+            r: d3.scaleSqrt()
+                .domain([0, d3.max(app.data, function (d) { return d.population })])
+                .range([0, 60])
+        }
+
         chart.update()
     },
 
@@ -48,7 +54,7 @@ Scatterplot.prototype = {
             .attr('class', 'country')
 
         allCountries
-            .attr('r', function (d) { return Math.sqrt(d.population) / 1000 })
+            .attr('r', function (d) { return chart.scales.r(d.population) })
 
         exitCountries.remove()
     }
