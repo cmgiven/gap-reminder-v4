@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gap Re-Minder</title>
+<link href='https://fonts.googleapis.com/css?family=Lato:300,400,900' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+<div id="main">
+
+  <header>
+    <h1>Gap Re-Minder</h1>
+  </header>
+
+  <div id="controls">
+    <button id="animate" class="play-button paused">Play</button>
+    <div id="year"><span id="year-label"></span></div>
+  </div>
+
+  <div class="exhibit" id="scatterplot"></div>
+
+  <div id="description"><p></p></div>
+  <div id="notes">
+    <p><strong>Source:</strong> <a href="http://www.gapminder.org/data/" target="_blank">Gapminder</a></p>
+  </div>
+
+</div>
+
+<div id="loading">
+  <h1>Loading
+    <div class="spinner">
+      <div class="rect1"></div>
+      <div class="rect2"></div>
+      <div class="rect3"></div>
+      <div class="rect4"></div>
+      <div class="rect5"></div>
+    </div>
+  </h1>
+  <p>There are a lot of countries in the world. How many? <a href="https://www.youtube.com/watch?v=4AivEQmfPpk" target="_blank">Tough to say.</a></p>
+</div>
+
+<script type="text/javascript" src="https://d3js.org/d3.v4.min.js"></script>
+<script type="text/javascript" src="script.js"></script>
+
+</body>
+</html>
