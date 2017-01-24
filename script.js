@@ -32,6 +32,22 @@ Scatterplot.prototype = {
 
     update: function () {
         var chart = this
+
+        var yearData = app.data.filter(function (d) {
+            return d.year === app.globals.selected.year
+        })
+
+        var countries = chart.svg.selectAll('.country')
+            .data(yearData, function (d) { return d.country })
+
+        var enterCountries = countries.enter().append('circle')
+        var exitCountries  = countries.exit()
+        var allCountries   = countries.merge(enterCountries)
+
+        enterCountries
+            .attr('class', 'country')
+
+        exitCountries.remove()
     }
 }
 
