@@ -19,13 +19,17 @@ Scatterplot.prototype = {
     setup: function () {
         var chart = this
 
-        var width = 600
-        var height = 400
+        var margin = { top: 15, right: 15, bottom: 30, left: 30 }
+
+        var width = 600 - margin.left - margin.right
+        var height = 400 - margin.top - margin.bottom
 
         chart.svg = d3.select('#scatterplot')
             .append('svg')
-            .attr('width', width)
-            .attr('height', height)
+            .attr('width', width + margin.left + margin.right)
+            .attr('height', height + margin.top + margin.bottom)
+            .append('g')
+            .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')')
 
         chart.scales = {
             r: d3.scaleSqrt()
