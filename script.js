@@ -88,7 +88,7 @@ Scatterplot.prototype = {
                 chart.tooltip.text('')
             })
 
-        allCountries
+        allCountries.transition().duration(ANIMATION_INTERVAL)
             .attr('r', function (d) { return chart.scales.r(d.population) })
             .attr('cx', function (d) { return chart.scales.x(d.totalFertility) })
             .attr('cy', function (d) { return chart.scales.y(d.lifeExpectancy) })
